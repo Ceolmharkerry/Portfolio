@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><!-- So that mobile webkit will display zoomed in --><meta name="format-detection" content="telephone=no"><!-- disable auto telephone linking in iOS -->
+  <title>Cappex, Your College Decision Headquarters</title>
+  <style type="text/css">
+  @import url(http://fonts.googleapis.com/css?family=Arvo);
+  /* Resets: see reset.css for details */
+  .ReadMsgBody {width: 100%; background-color: #ffffff;}
+  .ExternalClass {width: 100%; background-color: #ffffff;}
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+  body {-webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
+  body {margin: 0; padding: 0;}
+  table {border-spacing: 0;}
+  table td {border-collapse: collapse;}
+  .yshortcuts a {border-bottom: none !important;}
+  /* Constrain email width for small screens */
+  @media screen and (max-width: 480px) { 
+    table[class="container"] {width: 95% !important;}
+    td[class="headercell"] {
+      background-image: url(https://email-assets.cappex.com/cpx-header%402x.png) !important;
+      background-repeat: no-repeat !important;
+      background-size: 293px 104px;
+      width: 325px !important;
+      height: 115px !important;
+    }
+    td[class="headercell"] img {display: none;}  
+    td[class="container-padding"] {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+    }
+    td[class="hide"] {display: none;}
+    td[class="mobile-stacked"]{
+      float: none !important;
+      display: block !important;
+      width: 100% !important;
+    }
+    td[class="mobile-stacked-cta"] {
+      float: none !important;
+      display: block !important;
+      width: 100% !important;
+      margin-top: 15px !important;
+    }
+    a[class="button"] {
+      display: block !important;
+      width: 100% !important;
+      margin-top: 15px !important;
+    }
+    div [class="2pt"] {
+      display: block !important;        
+    }
+    table[class=detail], table[class=interested] {
+      float: none !important;
+      width: 100% !important;
+      padding-top: 10px;
+    }
+    img[class=primaryLogo]{width: 100% !important;}
+    img[class="HeroImage"]{
+        height:auto !important;
+        max-width:480px !important;
+        width:100% !important;
+        margin:auto;
+        vertical-align: bottom;
+        background-color:#ffffff;
+    }
+    td[class="bodycontent"]{
+      width: 100%  !important; /*recent edit*/
+      font-size:18px !important;
+      line-height: 24px !important;
+    }
+  }
+  </style>
+</head>
+<body bgcolor="#ffffff" leftmargin="0" marginheight="0" marginwidth="0" style="margin: 0; padding: 5px 0; background-color: #ffffff;" topmargin="0">
+<div style="display: none;">
+%%[Var @first_name, @auto_login_key, @identifier, @login_url, @account_id, @cappex_home, @update_profile, @manage_account, @CAM_Ad, @colleges_tab, 
+
+Set @first_name = first_name
+Set @auto_login_key = auto_login_key
+Set @identifier = identifier
+  if Empty(@auto_login_key) OR Empty(@identifier) then
+  Set @login_url = "https://www.cappex.com/page/account/login.jsp?"
+  else
+  Set @login_url = Concat("http://cappex.com/page/account/login.jsp?key=",@auto_login_key,"&identifier=",@identifier,"&submitButton=Submit")
+  endif
+Set @account_id = account_id
+Set @cappex_home = Concat(@login_url,"&redirect=https://www.cappex.com")
+Set @update_profile = Concat(@login_url,"&redirect=https://www.cappex.com/page/student/profileSummary.jsp")
+set @manage_account = Concat(@login_url,"&redirect=https://www.cappex.com/hq/account/manage")
+Set @CAM_Ad = Concat(@login_url,"&redirect=https://www.cappex.com/colleges/majors")
+Set @colleges_tab = Concat(@login_url,"&redirect=https://www.cappex.com/page/collegeCenter/myCollegesTab.jsp")
+
+Var @college_id_1, @college_id_1_formal_name, @college_id_1_thumbnail_logo_url, @college_id_1_city, @college_id_1_state_abbr, @college_id_1_te, @college_id_1_fte, @college_id_1_pte, @college_id_1_mft, @college_id_1_wft, @college_id_1_admitted_rate, @college_id_1_num_applied, @college_id_1_num_admitted, @college_id_1_num_enrolled, @college_id_1_college_phrase, @college_id_1_CPP, @college_id_1_deadline_date
+
+/* Update college_id_1 for the school you want to feature */
+
+Set @college_id_1 = 206589
+Set @college_id_1_formal_name = Lookup("ENT.prod_college_data","formal_name","college_id",@college_id_1)
+Set @college_id_1_thumbnail_logo_url = Lookup("ENT.prod_college_data","thumbnail_logo_url","college_id",@college_id_1)
+Set @college_id_1_city = Lookup("ENT.prod_college_data","city","college_id",@college_id_1)
+Set @college_id_1_state_abbr = Lookup("ENT.prod_college_data","state_abbr","college_id",@college_id_1)
+Set @college_id_1_te = Lookup("ENT.prod_college_data","total_enrollment","college_id",@college_id_1)
+Set @college_id_1_fte = Lookup("ENT.prod_college_data","full_time_enrollment","college_id",@college_id_1)
+Set @college_id_1_pte = Lookup("ENT.prod_college_data","part_time_enrollment","college_id",@college_id_1)
+Set @college_id_1_mft = Lookup("ENT.prod_college_data","men_full_time","college_id",@college_id_1)
+Set @college_id_1_wft = Lookup("ENT.prod_college_data","women_full_time","college_id",@college_id_1)
+Set @college_id_1_admitted_rate = Lookup("ENT.prod_college_data","admitted_rate","college_id",@college_id_1)
+Set @college_id_1_num_applied = Lookup("ENT.prod_college_data","number_applied","college_id",@college_id_1)
+Set @college_id_1_num_admitted = Lookup("ENT.prod_college_data","number_admitted","college_id",@college_id_1)
+Set @college_id_1_num_enrolled = Lookup("ENT.prod_college_data","number_enrolled","college_id",@college_id_1)
+Set @college_id_1_college_phrase = Lookup("ENT.prod_college_data","college_phrase","college_id",@college_id_1)
+Set @college_id_1_CPP = Concat(@login_url,"&redirect=https://www.cappex.com/colleges/",@college_id_1_college_phrase)
+Set @college_id_1_deadline_date = Lookup("ENT.prod_college_application_deadline","admissions_deadline","college_id",@college_id_1)
+]%%
+</div>
+<!-- 100% wrapper (grey background) -->
+<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" height="100%" style="background-color: #ffffff;" width="99%">
+  <tbody>
+    <tr>
+      <td align="center" bgcolor="#ffffff" valign="top">
+<!-- 600px container (white background) -->
+        <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="container" width="600" style="border: 1px solid #e7e7e7;">
+          <tbody>
+<!--Logo container-->
+            <tr bgcolor="#ffffff">
+              <td class="headercell" style="border-bottom: 1px solid #e7e7e7;"><!--Logo container--><a href="%%=RedirectTo(@cappex_home)=%%" alias="cappex_logo_home"><img alt="Cappex, Your College Decision Headquarters" border="0" src="https://email-assets.cappex.com/cpx-header.png" width="600" /></a></td>
+            </tr>
+<!--Hero Image container -->
+            <tr>
+              <td style="padding: 0px; font-size: 16px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #00a9dc; text-align: center;"><a href="http://www.cappexapplication.com" alias="cappex_application_logo" style="text-decoration: none; color: #6b6b6b;"><img class="HeroImage" alt="Cappex Application" src="https://email-assets.cappex.com/Application/Application-Email-Banner-1200x400.jpg" style="max-width: 600px; margin: auto; display: block;" width="600" /></a></td>
+            </tr>                   
+<!--Body Container 1 -->
+            <tr>
+              <td class="container-padding" style="padding: 30px 30px; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Helvetica, sans-serif; color: #ffffff; text-align: center;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody>
+                    <tr>
+                      <td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+                        Hi Kerry,<br><br>
+                        
+              					The University of Tampa is on your Cappex college list. If you still want to go there, now is the time to apply! Apply for free with the <a href="http://www.cappexapplication.com" alias="cappex_application_text" style="text-decoration: underline; color: #00a9dc;">Cappex Application</a>.
+                      </td> 
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+<!-- School Grid --> 
+            <tr>
+              <td>
+<!-- college_id_1 -->    
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td class="container-padding" style="height: auto; padding: 20px 50px; border-top: 1px #e7e7e7 solid;">
+                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="detail" width="25%">
+                        <tr>
+                          <td width="25%" style="mso-line-height-rule: exactly; line-height: 100%; font-size: 10px; font-family: Arial, sans-serif; font-weight: normal;">
+                            <a href="%%=RedirectTo(@college_id_1_CPP)=%%" alias="college_id_1_logo" style="text-decoration: none; color: #6b6b6b;"><img alt="The University of Tampa" src="http://www.cappex.com/assets/c-137847/logos/2010-12-21_16-23-36.459-t.jpg" style="width: 150px; background-color: #ffffff; text-align: left; display: block; border: 1px solid #dfdfdf;" width="150" /></a>
+                          </td>
+                        </tr>
+                      </table>
+                      <table align="right" border="0" cellpadding="0" cellspacing="0" class="detail" style="margin-left: 10px; text-align: left;" width="65%">
+                        <tr>
+                          <td width="65%" style="mso-line-height-rule: exactly; line-height: 26px; font-size: 24px; font-family: Arial, sans-serif; font-weight: normal;">
+                            <a title="The University of Tampa" href="%%=RedirectTo(@college_id_1_CPP)=%%" alias="college_id_1_title" style="text-decoration: none; color: #6b6b6b;">
+	                            <span style="color: #00a9dc; font-size: 24px; font-weight: bold;">The University of Tampa</span><br>
+	                            <span style="text-transform: uppercase; font-size: 12px;">Tampa, Florida</span><br>
+	                            <span style="font-size: 15px;">
+                              <span style="font-size: 12px;">
+                                Rolling Admissions (space is limited)<br>
+                                Early Action Deadline 1: November 15, 2016<br>
+                                Early Action Deadline 2: January 15, 2017<br>
+                                Regular Admissions Deadline: March 1, 2017</span></a>
+                              </span></a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+<!--Bar CTA -->
+            <!--[if mso]>
+            <tr>
+              <td class="container-padding" style="padding: 0px 30px 15px; background-color: #ffffff;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div align="center">
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://www.cappexapplication.com" alias="start_applying_cta" style="height:50px;v-text-anchor:middle;width:300px;" arcsize="6%" strokecolor="#f79520" fillcolor="#ffffff">
+                        <w:anchorlock/>
+                        <center style="color:#f79520;font-family:sans-serif;font-size:14px;font-weight:normal;">Apply Now</center>
+                        </v:roundrect>
+                        <a class="button" href="http://www.cappexapplication.com" alias="start_applying_cta" style="width: 300px; background-color: #ffffff; border: 2px solid #f79520; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; color: #f79520; display: inline-block; font-family: sans-serif; font-size: 14px; font-weight: normal; line-height: 50px; text-align: center; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">Apply&nbsp;Now</a></div>
+                      </td> 
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>  
+<![endif]--><!--[if !mso]><!-- -->
+            <tr>
+              <td class="container-padding" style="padding: 0px 30px 15px; background-color: #ffffff;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div align="center"><a class="button" href="http://www.cappexapplication.com" alias="start_applying_cta" style="width: 300px; background-color: #ffffff; border: 2px solid #f79520; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; color: #f79520; display: inline-block; font-family: sans-serif; font-size: 14px; font-weight: normal; line-height: 50px; text-align: center; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">Apply&nbsp;Now</a></div>
+                      </td> 
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>  
+<!--<![endif]-->
+<!-- Student & Admitted Table container -->
+            <tr>
+              <td class="container-padding" style="padding: 15px 50px 30px; background-color: #ffffff; font-family: Arial, sans-serif;">
+                <table align="left" border="0" cellpadding="0" cellspacing="0" class="mobile-stacked" style="border: 1px solid #e7e7e7; text-align: left;" width="45%">
+                  <tr>
+                    <td style="padding: 15px 0px 0px 20px; font-size:32px; font-family: Arial, sans-serif; color: #f79520; font-weight: bold;">7,700</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 15px 20px; font-size: 14px; font-family: Arial, sans-serif; color:#838383;">STUDENTS</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 8px 20px; font-size: 12px; font-family: Arial, sans-serif; color: #6b6b6b; font-weight: bold;">7,000&nbsp;<small style="font-size:10px;">FULL TIME</small></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 8px 20px; font-size: 12px; font-family: Arial, sans-serif; color: #6b6b6b; font-weight: bold;">783&nbsp;<small style="font-size:10px;">PART TIME</small></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 8px 20px; font-size: 12px; font-family: Arial, sans-serif; color: #6b6b6b; font-weight: bold;">2,489&nbsp;<small style="font-size:10px;">MEN FULL TIME</small></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 20px 20px; font-size: 12px; font-weight: bold; font-family: Arial, sans-serif; color: #6b6b6b;">3,155&nbsp;<small style="font-size:10px;">WOMEN FULL TIME</small></td>
+                  </tr>
+                </table>
+
+                <table align="right" border="0" cellpadding="0" cellspacing="0" class="mobile-stacked" style="border: 1px solid #e0e0e0; text-align: left;" width="45%">
+                  <tr>
+                    <td style="padding: 15px 0px 0px 20px; font-size:32px; font-family: Arial, sans-serif; color: #f79520; font-weight: bold;">47%</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 15px 20px; font-size: 14px; font-family: Arial, sans-serif; color:#838383;">ADMITTED</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 8px 20px; font-size: 12px; font-family: Arial, sans-serif; color: #6b6b6b; font-weight: bold;">13,690&nbsp;<small style="font-size: 10px;">APPLIED</small></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 8px 20px; font-size: 12px; font-family: Arial, sans-serif; color: #6b6b6b; font-weight: bold;">7,245&nbsp;<small style="font-size: 10px;">ADMITTED</small></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 8px 20px; font-size: 12px; font-family: Arial, sans-serif; color: #6b6b6b; font-weight: bold;">1,628&nbsp;<small style="font-size:10px;">ENROLLED</small></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0px 0px 20px 20px; font-size: 12px; font-weight: bold; font-family: Arial, sans-serif; color: #6b6b6b;">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>   
+<!--Body Container 2 -->
+            <tr>
+              <td class="container-padding" style="padding: 30px 30px 0px;  border-top: 1px #e7e7e7 solid; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Helvetica, sans-serif; color: #ffffff; text-align: center;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody>
+                    <tr>
+                      <td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+                      	Fill out the application once and have it sent to <a href="https://www.cappexapplication.com/list-of-colleges" alias="other_app_schools" style="color: #00a9dc;">multiple colleges</a> that accept the Cappex Application. If you have any questions email support at <a href="mailto:application@cappex.com" style="color: #00a9dc;" alias="email_support">application@cappex.com</a> for help.
+                      </td> 
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+<!-- Valediction -->
+            <tr>
+              <td bgcolor="#ffffff" class="container-padding" style="background-color: #ffffff; padding: 25px; font-size: 14px; font-family: Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+                <table border="0" cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 14px; font-family: Arial, sans-serif; font-weight: normal; color: #6b6b6b; text-align: left;">Regards,<br />
+                        <span style="font-size: 13.5px; font-family: 'Arvo', Arial, Helvetica, serif; color: #00a9dc; font-weight: bold;">YOUR CAPPEX TEAM</span><br />
+                        <a href="%%=RedirectTo(@cappex_home)=%%" alias="cappex_home" style="text-decoration: none; color: #00a9dc;">Cappex.com</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+<!-- Footer -->
+            <tr bgcolor="#555555">
+              <td style="font-family: Arial, Helvetica, sans-serif; background-color: #555555; text-align: center; color: #bfbfbf; font-size: 8pt; padding: 10px; mso-line-height-rule: exactly; line-height: 18px;"><a href="%%=RedirectTo(@manage_account)=%%" style="text-decoration: none; color: #00a9dc;" alias="manage_account">Update Email Settings</a> &nbsp;|&nbsp; <a href="%%unsub_center_url%%" alias="unsubscribe" style="text-decoration: none; color: #00a9dc;">Unsubscribe</a><br />
+              This email was sent by <a href="%%=RedirectTo(@cappex_home)=%%" alias="cappex_home" style="text-decoration: none; color: #00a9dc;">Cappex.com</a> LLC, &copy; %%=Format(Now(),"yyyy")=%%<br />
+              311 S. Wacker Drive #5900, Chicago, IL 60606</td>
+            </tr>
+          </tbody>
+        </table>
+<!--/600px container -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--/100% wrapper-->
+<br>
+<div style="display:none;"><table cellpadding="2" cellspacing="0" width="600" ID="Table5" Border=0 style="display:none;"><tr><td><font face="verdana" size="1" color="#ffffff">This email was sent by: <b>%%Member_Busname%%</b><br>%%Member_Addr%% %%Member_City%%, %%Member_State%%, %%Member_PostalCode%%, %%Member_Country%%<br><a href="%%profile_center_url%%" style="color: #ffffff;" alias="update_profile">Update Profile</a> <a href="%%subscription_center_url%%" style="color: #ffffff;" alias="manage_subscriptions">Manage Subscriptions</a> <a href="%%unsub_center_url%%" style="color: #ffffff;" alias="Unsubscribe">Unsubscribe</a></font></td></tr></table></div>
+<custom name="opencounter" type="tracking">
+<br>
+</body>
+</html>

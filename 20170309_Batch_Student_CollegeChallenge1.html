@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><!-- So that mobile webkit will display zoomed in --><meta name="format-detection" content="telephone=no"><!-- disable auto telephone linking in iOS -->
+	<title>Cappex, Your College Decision Headquarters</title>
+	<style type="text/css">
+	@import url(http://fonts.googleapis.com/css?family=Arvo);
+  /* Resets: see reset.css for details */
+  .ReadMsgBody {width: 100%; background-color: #ffffff;}
+  .ExternalClass {width: 100%; background-color: #ffffff;}
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+  body {-webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
+  body {margin: 0; padding: 0;}
+  table {border-spacing: 0;}
+  table td {border-collapse: collapse;}
+  .yshortcuts a {border-bottom: none !important;}
+  /* Constrain email width for small screens */
+  @media screen and (max-width: 480px) { 
+    table[class="container"] {width: 95% !important;}
+    td[class="headercell"] {
+      background-image: url(https://email-assets.cappex.com/cpx-header%402x.png) !important;
+      background-repeat: no-repeat !important;
+      background-size: 293px 104px;
+      width: 325px !important;
+      height: 115px !important;
+    }
+    td[class="headercell"] img {display: none;}
+    td[class="container-padding"] {
+    	width: 90%  !important;
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+    }
+    table[class="mobile-stacked"]{
+      float: none !important;
+      width: 100% !important;
+      margin-top: 15px !important;
+      }
+    table[class=detail], table[class=interested] {
+      float: none !important;
+      width: 100% !important;
+      padding-top: 10px;
+    }
+    img[class=primaryLogo]{width: 100% !important;}
+    img[class="HeroImage"]{
+        height:auto !important;
+        max-width:480px !important;
+        width:100% !important;
+        margin:auto;
+        vertical-align: bottom;
+        background-color:#ffffff;
+    }
+    td[class="bodycontent"]{
+    	width: 100%  !important;
+        font-size:18px !important;
+		line-height: 24px !important;
+    }
+  }
+	</style>
+</head>
+<body bgcolor="#ffffff" leftmargin="0" marginheight="0" marginwidth="0" style="margin: 0; padding: 5px 0; background-color: #ffffff;" topmargin="0">
+<div style="display: none;">
+%%[Var @first_name, @auto_login_key, @identifier, @login_url, @cappex_home, @update_profile, @manage_account, @CAM_Ad, @AppMan
+
+Set @first_name = first_name
+Set @auto_login_key = auto_login_key
+Set @identifier = identifier
+  if Empty(@auto_login_key) OR Empty(@identifier) then
+  Set @login_url = "https://www.cappex.com/page/account/login.jsp?"
+  else
+  Set @login_url = Concat("http://cappex.com/page/account/login.jsp?key=",@auto_login_key,"&identifier=",@identifier,"&submitButton=Submit")
+  endif
+Set @cappex_home = Concat(@login_url,"&redirect=https://www.cappex.com")
+Set @update_profile = Concat(@login_url,"&redirect=https://www.cappex.com/page/student/profileSummary.jsp")
+set @manage_account = Concat(@login_url,"&redirect=https://www.cappex.com/hq/account/manage")
+Set @CAM_Ad = Concat(@login_url,"&redirect=https://www.cappex.com/colleges/majors")
+Set @AppMan = Concat(@login_url,"&redirect=https://www.cappex.com/hq/application-list")
+]%%
+</div>
+<!-- 100% wrapper (grey background) -->
+<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" height="100%" style="background-color: #ffffff;" width="99%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#ffffff" valign="top">
+<!-- 600px container (white background) -->
+				<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="container" width="600" style="border: 1px solid #e7e7e7;">
+					<tbody>
+<!--Logo container-->
+						<tr bgcolor="#ffffff">
+							<td class="headercell" style="border-bottom: 1px solid #e7e7e7;"><a href="%%=RedirectTo(@cappex_home)=%%" alias="cappex_logo_home"><img alt="Cappex, Your College Decision Headquarters" border="0" src="https://email-assets.cappex.com/cpx-header.png" width="600" /></a></td>
+						</tr>
+<!--Header container -->
+						<tr>
+							<td class="container-padding" style="padding: 0px 25px; background-color: #00a9dc; mso-line-height-rule: exactly; line-height: 20px; font-size: 14px; font-family: Helvetica, sans-serif; color: #ffffff; text-align: center;">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td style="padding: 15px 0px; font-size: 18px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #ffffff; text-align: center;">Cappex College Challenge Starts March 17</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+<!--Hero Image container -->
+						<tr>
+							<td style="padding: 10px 0px 0px; font-size: 16px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #00a9dc; text-align: center;"><a href="http://cappex-college-challenge.kickoffpages.com" style="color: #00a9dc; font-weight: bold;" alias="CappexCollegeChallenge_Image"><img class="HeroImage" alt="Cappex College Challenge" src="https://email-assets.cappex.com/BRACKET.png" style="max-width: 600px; margin: auto; display: block;" width="600" /></td>
+						</tr>	
+<!--Sub-Header container -->
+						<tr>
+							<td class="container-padding" style="padding: 0px 25px; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 20px; font-size: 14px; font-family: Helvetica, sans-serif; color: #ffffff; text-align: center;">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td class="bodycontent" style="padding: 10px 0px 0px; font-size: 16px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #00a9dc; text-align: center;">Make your college search a slam-dunk!</td> 
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>																	
+<!--Body Container 1 -->
+						<tr>
+							<td class="container-padding" style="padding: 15px 25px 15px; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Helvetica, sans-serif; color: #ffffff; text-align: center;">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+												Find your perfect school and be entered to win a <b>$250 scholarship</b>. Here's how you can play to pay for college ...<br><br>
+												1.	<a href="http://cappex-college-challenge.kickoffpages.com" style="color: #00a9dc;" alias="sign_up">Sign up</a> to download your bracket<br>
+												2.	Pit your colleges against each other to find your winner<br>
+												3.	Share a pic of your completed bracket on social, tag Cappex and #CappexCollegeChallenge<br><br>
+												Follow along on <a href="https://www.facebook.com/cappex" style="color: #00a9dc;" alias="facebook">Facebook</a>, <a href="https://twitter.com/cappex" style="color: #00a9dc;" alias="twitter">Twitter</a> or <a href="https://www.instagram.com/cappex/" style="color: #00a9dc;" alias="instagram">Instagram</a> for additional chances to win prizes.
+											</td> 
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>																	
+<!--Orange CTA -->
+						<tr>
+							<td class="container-padding" style="padding: 15px 25px; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 36px; font-size: 16px; font-family: Helvetica, sans-serif; color: #ffffff; text-align: center;">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td style="font-size: 16px; font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: center;">
+												<!--[if mso]>
+					                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://cappex-college-challenge.kickoffpages.com" style="width: 255px; height: 36px; white-space: nowrap; background-color: #f79520; font-weight: normal; v-text-anchor: middle;" alias="get_my_bracket" arcsize="9%" stroke="f" fillcolor="#f79520">
+					                            <w:anchorlock/>
+					                              <center>
+					                              <![endif]--><a class="button" href="http://cappex-college-challenge.kickoffpages.com" alias="get_my_bracket" style="width: 255px; white-space: nowrap; background-color: #f79520; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 16px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#ffffff; text-decoration: none; font-weight:normal; text-align: center;">Get My Bracket</a> <!--[if mso]>
+					                              </center>
+					                            </v:roundrect>
+					                          	<![endif]-->
+											</td> 
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+<!--Body Container 2 -->
+						<tr>
+							<td class="container-padding" style="padding: 0px 25px; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Helvetica, sans-serif; color: #ffffff; text-align: center;">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+												  <tr>
+												    <td style="padding: 15px 0px; font-size: 18px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #f79520; text-align: center;">Cappex College Challenge Starts In...</td>
+												  </tr>
+												  <tr>
+												    <td align="center"><img class="HeroImage" src="http://gen.sendtric.com/image/countdown?to=1489726800&bg=ffffff&fg=00a9dc&days=1&lang=en" style="display: block;" /></td>
+												  </tr>
+												</table>
+											</td> 
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+<!-- Valediction -->
+						<tr>
+						  <td bgcolor="#ffffff" class="container-padding" style="background-color: #ffffff; padding: 25px; font-size: 14px; font-family: Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+						    <table border="0" cellpadding="0" cellspacing="0">
+						      <tbody>
+						        <tr>
+						          <td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 14px; font-family: Arial, sans-serif; font-weight: normal; color: #6b6b6b; text-align: left;">
+									<a href="https://www.cappex.com/hq/articles-and-advice/resources/about/Cappex-College-Challenge-Scholarship-Official-Rules" style="color: #00a9dc; font-size: 12px;" alias="terms_conditions">Terms and Conditions Apply</a><br><br>
+						          	Good Luck!<br />
+						            <span style="font-size: 13.5px; font-family: 'Arvo', Arial, Helvetica, serif; color: #00a9dc; font-weight: bold;">YOUR CAPPEX TEAM</span><br />
+						            <a href="%%=RedirectTo(@cappex_home)=%%" alias="cappex_home" style="text-decoration: none; color: #00a9dc;">Cappex.com</a>
+						          </td>
+						        </tr>
+						      </tbody>
+						    </table>
+						  </td>
+						</tr>
+	<!-- Footer -->
+						<tr bgcolor="#555555">
+							<td style="font-family: Arial, Helvetica, sans-serif; background-color: #555555; text-align: center; color: #bfbfbf; font-size: 8pt; padding: 10px; mso-line-height-rule: exactly; line-height: 18px;"><a href="%%=RedirectTo(@manage_account)=%%" style="text-decoration: none; color: #00a9dc;" alias="manage_account">Update Email Settings</a> &nbsp;|&nbsp; <a href="%%unsub_center_url%%" alias="unsubscribe" style="text-decoration: none; color: #00a9dc;">Unsubscribe</a><br />
+							This email was sent by <a href="%%=RedirectTo(@cappex_home)=%%" alias="cappex_home" style="text-decoration: none; color: #00a9dc;">Cappex.com</a> LLC, &copy; %%=Format(Now(),"yyyy")=%%<br />
+							311 S. Wacker Drive #5900, Chicago, IL 60606</td>
+						</tr>
+					</tbody>
+				</table>
+<!--/600px container -->
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--/100% wrapper-->
+<br>
+<div style="display:none;"><table cellpadding="2" cellspacing="0" width="600" ID="Table5" Border=0 style="display:none;"><tr><td><font face="verdana" size="1" color="#ffffff">This email was sent by: <b>%%Member_Busname%%</b><br>%%Member_Addr%% %%Member_City%%, %%Member_State%%, %%Member_PostalCode%%, %%Member_Country%%<br><a href="%%profile_center_url%%" style="color: #ffffff;" alias="update_profile">Update Profile</a> <a href="%%subscription_center_url%%" style="color: #ffffff;" alias="manage_subscriptions">Manage Subscriptions</a> <a href="%%unsub_center_url%%" style="color: #ffffff;" alias="Unsubscribe">Unsubscribe</a></font></td></tr></table></div>
+<custom name="opencounter" type="tracking">
+<br>
+</body>
+</html>

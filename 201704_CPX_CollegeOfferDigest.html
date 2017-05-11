@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><!-- So that mobile webkit will display zoomed in --><meta name="format-detection" content="telephone=no"><!-- disable auto telephone linking in iOS -->
+  <title>Cappex, Your College Decision Headquarters</title>
+  <style type="text/css">
+  @import url(http://fonts.googleapis.com/css?family=Arvo);
+  /* Resets: see reset.css for details */
+  .ReadMsgBody {width: 100%; background-color: #ffffff;}
+  .ExternalClass {width: 100%; background-color: #ffffff;}
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+  body {-webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
+  body {margin: 0; padding: 0;}
+  table {border-spacing: 0;}
+  table td {border-collapse: collapse;}
+  .yshortcuts a {border-bottom: none !important;}
+  /* Constrain email width for small screens */
+  @media screen and (max-width: 480px) {
+    table[class="container"] {width: 95% !important;}
+    td[class="headercell"] img {
+      width: 325px !important;
+    }
+    td[class="container-padding"] {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+    }
+    td[class="mobile-stack-l"] {
+      padding-left: 12px !important;
+    }
+    td[class="mobile-stack-r"] {
+      padding-right: 12px !important;
+    }
+    td[class="hide"] {display: none;}
+    table[class=detail], table[class=interested] {
+      float: none !important;
+      width: 100% !important;
+      padding-top: 10px;
+    }
+    img[class=primaryLogo]{width: 100% !important;}
+    img[class=cidlogo] {width:100% !important;}
+  }
+  </style>
+</head>
+<body bgcolor="#ffffff" leftmargin="0" marginheight="0" marginwidth="0" style="margin: 0; padding: 10px 0; background-color: #ffffff; " topmargin="0">
+
+<!-- 100% wrapper (grey background) -->
+<div style="display:none;">
+%%[/* 
+/* General */ 
+Var @account_id, @first_name, @auto_login_key, @identifier, @login_url, @cappex_home, @manage_account, @update_profile, @colleges_tab, @offers_revealed_count, @recruitment_letters
+
+Set @account_id = account_id
+Set @first_name = first_name
+Set @auto_login_key = auto_login_key
+Set @identifier = identifier
+  if Empty(@auto_login_key) OR Empty(@identifier) then
+  Set @login_url = "https://www.cappex.com/page/account/login.jsp?"
+  else
+  Set @login_url = Concat("http://cappex.com/page/account/login.jsp?key=",@auto_login_key,"&identifier=",@identifier,"&submitButton=Submit")
+  endif
+Set @cappex_home = Concat(@login_url,"&redirect=https://www.cappex.com")
+set @manage_account = Concat(@login_url,"&redirect=https://www.cappex.com/hq/account/manage")
+Set @update_profile = Concat(@login_url,"&redirect=https://www.cappex.com/page/student/profileSummary.jsp")
+Set @colleges_tab = Concat(@login_url,"&redirect=https://www.cappex.com/page/collegeCenter/myCollegesTab.jsp")
+Set @offers_revealed_count = Lookup("ENT.prod_campaign_offer","offers_revealed_count","account_id",account_id)
+  if not Empty(@college_id_5) then
+  Set @recruitment_letters = 5
+  elseif Empty(@college_id_5) AND Not Empty(@college_id_4) then
+  Set @recruitment_letters = 4
+  elseif Empty(@college_id_4) AND Not Empty(@college_id_3) then
+  Set @recruitment_letters = 3
+  elseif Empty(@college_id_3) AND Not Empty(@college_id_2) then
+  Set @recruitment_letters = 2
+  elseif Empty(@college_id_2) AND Not Empty(@college_id_1) then
+  Set @recruitment_letters = 1
+  endif
+
+/* College 1 */ 
+Var @college_id_1, @college_id_1_thumbnail_logo_url, @campaign_id_1_from_name, @college_id_1_city, @college_id_1_state_abbr, @campaign_id_1_subject, @campaign_id_1_truncated_message, @campaign_id_1, @college_id_1, @college_id_1_college_phrase, @offer_id_1, @college_id_1_CPP, @college_1_read_more, @college_1_yes, @college_1_no
+
+Set @college_id_1 = Lookup("ENT.prod_campaign_offer","college_id_1","account_id",account_id)
+Set @college_id_1_thumbnail_logo_url = Lookup("ENT.prod_college_data","thumbnail_logo_url","college_id",@college_id_1)
+Set @campaign_id_1_from_name = Lookup("ENT.prod_college_data","formal_name","college_id",@college_id_1)
+Set @college_id_1_college_phrase = Lookup("ENT.prod_college_data","college_phrase","college_id",@college_id_1)
+Set @college_id_1_city = Lookup("ENT.prod_college_data","city","college_id",@college_id_1)
+Set @college_id_1_state_abbr = Lookup("ENT.prod_college_data","state_abbr","college_id",@college_id_1)
+Set @campaign_id_1 = Lookup("ENT.prod_campaign_offer","campaign_id_1","account_id",account_id)
+Set @campaign_id_1_subject = Lookup("ENT.prod_campaign","subject","campaign_id",@campaign_id_1)
+Set @campaign_id_1_truncated_message = Lookup("ENT.prod_campaign","truncated_message","campaign_id",@campaign_id_1)
+Set @offer_id_1 = Lookup("ENT.prod_campaign_offer","offer_id_1","account_id",account_id)
+Set @college_id_1_CPP = Concat(@login_url,"&redirect=https://www.cappex.com/colleges/",@college_id_1_college_phrase)
+Set @college_1_read_more = Concat(@login_url,"&redirect=https://www.cappex.com/page/collegeCenter/myCollegesTab.jsp%3FcampaignID=",@campaign_id_1,"XXXcollegeID=",@college_id_1,"XXXfromName=",@college_id_1_college_phrase,"XXXcontext=emailClickXXXdoOpenOffer=trueXXXofferID=",@offer_id_1)
+Set @college_1_yes = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=2XXXcampaignID=",@campaign_id_1,"XXXcollegeID=",@college_id_1,"XXXfromName=",@college_id_1_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+Set @college_1_no = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=3XXXcampaignID=",@campaign_id_1,"XXXcollegeID=",@college_id_1,"XXXfromName=",@college_id_1_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+
+/* College 2 */ 
+Var @college_id_2, @college_id_2_thumbnail_logo_url, @campaign_id_2_from_name, @college_id_2_city, @college_id_2_state_abbr, @campaign_id_2_subject, @campaign_id_2_truncated_message, @campaign_id_2, @college_id_2, @college_id_2_college_phrase, @offer_id_2, @college_id_2_CPP, @college_2_read_more, @college_2_yes, @college_2_no
+
+Set @college_id_2 = Lookup("ENT.prod_campaign_offer","college_id_2","account_id",account_id)
+Set @college_id_2_thumbnail_logo_url = Lookup("ENT.prod_college_data","thumbnail_logo_url","college_id",@college_id_2)
+Set @campaign_id_2_from_name = Lookup("ENT.prod_college_data","formal_name","college_id",@college_id_2)
+Set @college_id_2_college_phrase = Lookup("ENT.prod_college_data","college_phrase","college_id",@college_id_2)
+Set @college_id_2_city = Lookup("ENT.prod_college_data","city","college_id",@college_id_2)
+Set @college_id_2_state_abbr = Lookup("ENT.prod_college_data","state_abbr","college_id",@college_id_2)
+Set @campaign_id_2 = Lookup("ENT.prod_campaign_offer","campaign_id_2","account_id",account_id)
+Set @campaign_id_2_subject = Lookup("ENT.prod_campaign","subject","campaign_id",@campaign_id_2)
+Set @campaign_id_2_truncated_message = Lookup("ENT.prod_campaign","truncated_message","campaign_id",@campaign_id_2)
+Set @offer_id_2 = Lookup("ENT.prod_campaign_offer","offer_id_2","account_id",account_id)
+Set @college_id_2_CPP = Concat(@login_url,"&redirect=https://www.cappex.com/colleges/",@college_id_2_college_phrase)
+Set @college_2_read_more = Concat(@login_url,"&redirect=https://www.cappex.com/page/collegeCenter/myCollegesTab.jsp%3FcampaignID=",@campaign_id_2,"XXXcollegeID=",@college_id_2,"XXXfromName=",@college_id_2_college_phrase,"XXXcontext=emailClickXXXdoOpenOffer=trueXXXofferID=",@offer_id_2)
+Set @college_2_yes = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=2XXXcampaignID=",@campaign_id_2,"XXXcollegeID=",@college_id_2,"XXXfromName=",@college_id_2_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+Set @college_2_no = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=3XXXcampaignID=",@campaign_id_2,"XXXcollegeID=",@college_id_2,"XXXfromName=",@college_id_2_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+
+/* College 3 */ 
+Var @college_id_3, @college_id_3_thumbnail_logo_url, @campaign_id_3_from_name, @college_id_3_city, @college_id_3_state_abbr, @campaign_id_3_subject, @campaign_id_3_truncated_message, @campaign_id_3, @college_id_3, @college_id_3_college_phrase, @offer_id_3, @college_id_3_CPP, @college_3_read_more, @college_3_yes, @college_3_no
+
+Set @college_id_3 = Lookup("ENT.prod_campaign_offer","college_id_3","account_id",account_id)
+Set @college_id_3_thumbnail_logo_url = Lookup("ENT.prod_college_data","thumbnail_logo_url","college_id",@college_id_3)
+Set @campaign_id_3_from_name = Lookup("ENT.prod_college_data","formal_name","college_id",@college_id_3)
+Set @college_id_3_college_phrase = Lookup("ENT.prod_college_data","college_phrase","college_id",@college_id_3)
+Set @college_id_3_city = Lookup("ENT.prod_college_data","city","college_id",@college_id_3)
+Set @college_id_3_state_abbr = Lookup("ENT.prod_college_data","state_abbr","college_id",@college_id_3)
+Set @campaign_id_3 = Lookup("ENT.prod_campaign_offer","campaign_id_3","account_id",account_id)
+Set @campaign_id_3_subject = Lookup("ENT.prod_campaign","subject","campaign_id",@campaign_id_3)
+Set @campaign_id_3_truncated_message = Lookup("ENT.prod_campaign","truncated_message","campaign_id",@campaign_id_3)
+Set @offer_id_3 = Lookup("ENT.prod_campaign_offer","offer_id_3","account_id",account_id)
+Set @college_id_3_CPP = Concat(@login_url,"&redirect=https://www.cappex.com/colleges/",@college_id_3_college_phrase)
+Set @college_3_read_more = Concat(@login_url,"&redirect=https://www.cappex.com/page/collegeCenter/myCollegesTab.jsp%3FcampaignID=",@campaign_id_3,"XXXcollegeID=",@college_id_3,"XXXfromName=",@college_id_3_college_phrase,"XXXcontext=emailClickXXXdoOpenOffer=trueXXXofferID=",@offer_id_3)
+Set @college_3_yes = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=2XXXcampaignID=",@campaign_id_3,"XXXcollegeID=",@college_id_3,"XXXfromName=",@college_id_3_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+Set @college_3_no = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=3XXXcampaignID=",@campaign_id_3,"XXXcollegeID=",@college_id_3,"XXXfromName=",@college_id_3_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+
+/* College 4 */ 
+Var @college_id_4, @college_id_5_thumbnail_logo_url, @campaign_id_4_from_name, @college_id_4_city, @college_id_4_state_abbr, @campaign_id_4_subject, @campaign_id_4_truncated_message, @campaign_id_4, @college_id_4, @college_id_4_college_phrase, @offer_id_4, @college_id_4_CPP, @college_4_read_more, @college_4_yes, @college_4_no
+
+Set @college_id_4 = Lookup("ENT.prod_campaign_offer","college_id_4","account_id",account_id)
+Set @college_id_4_thumbnail_logo_url = Lookup("ENT.prod_college_data","thumbnail_logo_url","college_id",@college_id_4)
+Set @campaign_id_4_from_name = Lookup("ENT.prod_college_data","formal_name","college_id",@college_id_4)
+Set @college_id_4_college_phrase = Lookup("ENT.prod_college_data","college_phrase","college_id",@college_id_4)
+Set @college_id_4_city = Lookup("ENT.prod_college_data","city","college_id",@college_id_4)
+Set @college_id_4_state_abbr = Lookup("ENT.prod_college_data","state_abbr","college_id",@college_id_4)
+Set @campaign_id_4 = Lookup("ENT.prod_campaign_offer","campaign_id_4","account_id",account_id)
+Set @campaign_id_4_subject = Lookup("ENT.prod_campaign","subject","campaign_id",@campaign_id_4)
+Set @campaign_id_4_truncated_message = Lookup("ENT.prod_campaign","truncated_message","campaign_id",@campaign_id_4)
+Set @offer_id_4 = Lookup("ENT.prod_campaign_offer","offer_id_4","account_id",account_id)
+Set @college_id_4_CPP = Concat(@login_url,"&redirect=https://www.cappex.com/colleges/",@college_id_4_college_phrase)
+Set @college_4_read_more = Concat(@login_url,"&redirect=https://www.cappex.com/page/collegeCenter/myCollegesTab.jsp%3FcampaignID=",@campaign_id_4,"XXXcollegeID=",@college_id_4,"XXXfromName=",@college_id_4_college_phrase,"XXXcontext=emailClickXXXdoOpenOffer=trueXXXofferID=",@offer_id_4)
+Set @college_4_yes = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=2XXXcampaignID=",@campaign_id_4,"XXXcollegeID=",@college_id_4,"XXXfromName=",@college_id_4_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+Set @college_4_no = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=3XXXcampaignID=",@campaign_id_4,"XXXcollegeID=",@college_id_4,"XXXfromName=",@college_id_4_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+
+/* College 5 */ 
+Var @college_id_5, @college_id_5_thumbnail_logo_url, @campaign_id_5_from_name, @college_id_5_city, @college_id_5_state_abbr, @campaign_id_5_subject, @campaign_id_5_truncated_message, @campaign_id_5, @college_id_5, @college_id_5_college_phrase, @offer_id_5, @college_id_5_CPP, @college_5_read_more, @college_5_yes, @college_5_no
+
+Set @college_id_5 = Lookup("ENT.prod_campaign_offer","college_id_5","account_id",account_id)
+Set @college_id_5_thumbnail_logo_url = Lookup("ENT.prod_college_data","thumbnail_logo_url","college_id",@college_id_5)
+Set @campaign_id_5_from_name = Lookup("ENT.prod_college_data","formal_name","college_id",@college_id_5)
+Set @college_id_5_college_phrase = Lookup("ENT.prod_college_data","college_phrase","college_id",@college_id_5)
+Set @college_id_5_city = Lookup("ENT.prod_college_data","city","college_id",@college_id_5)
+Set @college_id_5_state_abbr = Lookup("ENT.prod_college_data","state_abbr","college_id",@college_id_5)
+Set @campaign_id_5 = Lookup("ENT.prod_campaign_offer","campaign_id_5","account_id",account_id)
+Set @campaign_id_5_subject = Lookup("ENT.prod_campaign","subject","campaign_id",@campaign_id_5)
+Set @campaign_id_5_truncated_message = Lookup("ENT.prod_campaign","truncated_message","campaign_id",@campaign_id_5)
+Set @offer_id_5 = Lookup("ENT.prod_campaign_offer","offer_id_5","account_id",account_id)
+Set @college_id_5_CPP = Concat(@login_url,"&redirect=https://www.cappex.com/colleges/",@college_id_5_college_phrase)
+Set @college_5_read_more = Concat(@login_url,"&redirect=https://www.cappex.com/page/collegeCenter/myCollegesTab.jsp%3FcampaignID=",@campaign_id_5,"XXXcollegeID=",@college_id_5,"XXXfromName=",@college_id_5_college_phrase,"XXXcontext=emailClickXXXdoOpenOffer=trueXXXofferID=",@offer_id_5)
+Set @college_5_yes = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=2XXXcampaignID=",@campaign_id_5,"XXXcollegeID=",@college_id_5,"XXXfromName=",@college_id_5_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+Set @college_5_no = Concat(@login_url,"&redirect=https://www.cappex.com/process/processStudentDecision.jsp%3FnewStatus=3XXXcampaignID=",@campaign_id_5,"XXXcollegeID=",@college_id_5,"XXXfromName=",@college_id_5_college_phrase,"XXXcontext=emailClickXXXopeningPageId=XXXreturnTo=/page/collegeCenter/myCollegesTab.jsp")
+
+*/]%%
+</div>
+<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" height="100%" style="background-color: #ffffff;" width="99%">
+  <tr>
+    <td align="center" bgcolor="#ffffff" valign="top">
+<!-- 600px container (white background) -->
+      <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="container" width="600" style="border: 1px solid #e7e7e7;">
+        <tr bgcolor="#ffffff">
+          <td class="headercell" style="border-bottom: 1px solid #e7e7e7;"><!--Logo container--><a href="%%=RedirectTo(@cappex_home)=%%" alias="cappex_logo_home"><img alt="Cappex, Your College Decision Headquarters" border="0" src="https://email-assets.cappex.com/cpx-header.png" width="600" /></a></td>
+        </tr>
+<!--Header container -->
+        <tr>
+          <td class="container-padding" style="padding: 0px 25px; background-color: #00a9dc; mso-line-height-rule: exactly; line-height: 20px; font-size: 14px; font-family: Helvetica, sans-serif; color: #ffffff; text-align: center;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td style="padding: 15px 0px; font-size: 18px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #ffffff; text-align: center;">New Recruitment Messages</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!-- P.Header-->
+        <tr>
+          <td class="container-padding" style="padding: 25px; mso-line-height-rule: exactly; line-height: 18px; font-size: 14px; font-family: Arial, sans-serif; color: #6b6b6b; font-weight: normal;">
+            %%=IIF(EMPTY(@first_name),"Hi There",ProperCase(@first_name))=%%,<br><br>
+
+            You have %%=v(@offers_revealed_count)=%% total messages from colleges trying to recruit you. Use the "<b>Add to List</b>" button to bookmark schools to your Cappex college list. This makes it easy to research your admission chances and academic, financial and social fit at your favorite colleges. 
+          </td>
+        </tr>
+<!--Orange CTA -->
+        <tr>
+          <td class="container-padding" style="padding: 0px 25px 40px; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; text-align: center;">
+            <!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@colleges_tab)=%%" style="width: 255px; height: 30px; white-space: nowrap; background-color: #f79520; font-weight: normal; v-text-anchor: middle;" alias="see_all_messages_cta" arcsize="9%" stroke="f" fillcolor="#f79520">
+            <w:anchorlock/>
+              <center>
+              <![endif]--><a class="button" href="%%=RedirectTo(@colleges_tab)=%%" alias="see_all_messages_cta" style="width: 255px; white-space: nowrap; background-color: #f79520; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#ffffff; text-decoration: none; font-weight:normal; text-align: center;">SEE ALL MESSAGES</a> <!--[if mso]>
+              </center>
+            </v:roundrect>
+            <![endif]-->
+          </td>
+        </tr>
+<!-- P.Header-->
+        <tr>
+          <td class="bodycontent" style="border-bottom: 1px solid #e7e7e7; padding: 0px 25px 5px; mso-line-height-rule: exactly; line-height: 18px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #00a9dc; text-align: left; vertical-align: bottom; ">
+            NEW RECRUITMENT MESSAGES</td> 
+        </tr>
+<!-- college_id_1 -->
+        <tr>
+          <td class="container-padding" style="height: auto; padding: 0px 25px;">
+<!-- CID1 -->              
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td class="mobile-stack-l" width="10%" style="padding: 25px 10px 10px 0px; mso-line-height-rule: exactly; line-height: 100%; font-size: 10px; font-family: Arial, sans-serif; font-weight: normal;">
+                  <a href="%%=RedirectTo(@college_id_1_CPP)=%%" alias="college_id_1_logo" style="text-decoration: none; color: #6b6b6b;"><img alt="%%=v(@campaign_id_1_from_name)=%%" src="%%=v(@college_id_1_thumbnail_logo_url)=%%" style="width: 75px; background-color: #ffffff; text-align: left; display: block; border: 1px solid #dfdfdf;" width="75" /></a>
+                </td>
+                <td class="mobile-stack-r" width="65%" style="padding: 25px 0px 10px 0px; mso-line-height-rule: exactly; line-height: 20px; font-size: 16px; font-family: Arial, sans-serif; font-weight: normal; text-align: left;">
+                  <a href="%%=RedirectTo(@college_id_1_CPP)=%%" alias="college_id_1_name" style="text-decoration: none; color: #00a9dc;">%%=v(@campaign_id_1_from_name)=%%</a><br><span style="color: #6b6b6b; text-transform: uppercase; font-size: 10px;">%%=v(@college_id_1_city)=%%, %%=v(@college_id_1_state_abbr)=%%</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="padding: 10px 0px; color: #6b6b6b; mso-line-height-rule: exactly; line-height: 18px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">            
+                  <strong>Recruitment Message:</strong> %%=TreatAsContent(@campaign_id_1_truncated_message)=%%... <a href="%%=RedirectTo(@college_1_read_more)=%%" alias="college_id_1_rm" style="text-decoration: underline; color: #00a9dc;">Read More</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="border-bottom: 1px solid #e7e7e7; padding: 10px 0px 25px;  mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_1_yes)=%%" style="width: 120px; height: 30px; white-space: nowrap; background-color: #f79520; font-weight: normal; v-text-anchor: middle;" alias="college_id_1_yes" arcsize="9%" stroke="f" fillcolor="#f79520">
+                    <w:anchorlock/>in th
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_1_yes)=%%" alias="college_id_1_yes" style="width: 120px; white-space: nowrap; background-color: #f79520; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#ffffff; text-decoration: none; font-weight:normal; text-align: center;">Add&nbsp;to&nbsp;List</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                  &nbsp;
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_1_no)=%%" style="width: 75px; height: 30px; white-space: nowrap; background-color: #ffffff; font-weight: normal; v-text-anchor: middle;" alias="college_id_1_no" arcsize="9%" stroke="f" fillcolor="#ffffff">
+                    <w:anchorlock/>
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_1_no)=%%" alias="college_id_1_no" style="width: 75px; white-space: nowrap; background-color: #ffffff; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#00a9dc; text-decoration: underline; font-weight:normal; text-align: center;">Delete</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                </td>
+              </tr>
+            </table>
+%%[if not Empty(@college_id_2) then]%%          
+<!-- CID2 -->              
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td class="mobile-stack-l" width="10%" style="padding: 25px 10px 10px 0px; mso-line-height-rule: exactly; line-height: 100%; font-size: 10px; font-family: Arial, sans-serif; font-weight: normal;">
+                  <a href="%%=RedirectTo(@college_id_2_CPP)=%%" alias="college_id_2_logo" style="text-decoration: none; color: #6b6b6b;"><img alt="%%=v(@campaign_id_2_from_name)=%%" src="%%=v(@college_id_2_thumbnail_logo_url)=%%" style="width: 75px; background-color: #ffffff; text-align: left; display: block; border: 1px solid #dfdfdf;" width="75" /></a>
+                </td>
+                <td class="mobile-stack-r" width="65%" style="padding: 25px 0px 10px 0px; mso-line-height-rule: exactly; line-height: 20px; font-size: 16px; font-family: Arial, sans-serif; font-weight: normal; text-align: left;">
+                  <a href="%%=RedirectTo(@college_id_2_CPP)=%%" alias="college_id_2_name" style="text-decoration: none; color: #00a9dc;">%%=v(@campaign_id_2_from_name)=%%</a><br><span style="color: #6b6b6b; text-transform: uppercase; font-size: 10px;">%%=v(@college_id_2_city)=%%, %%=v(@college_id_2_state_abbr)=%%</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="padding: 10px 0px; color: #6b6b6b; mso-line-height-rule: exactly; line-height: 18px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">            
+                  <strong>Recruitment Message:</strong> %%=TreatAsContent(@campaign_id_2_truncated_message)=%%... <a href="%%=RedirectTo(@college_2_read_more)=%%" alias="college_id_2_rm" style="text-decoration: underline; color: #00a9dc;">Read More</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="border-bottom: 1px solid #e7e7e7; padding: 10px 0px 25px;  mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_2_yes)=%%" style="width: 120px; height: 30px; white-space: nowrap; background-color: #f79520; font-weight: normal; v-text-anchor: middle;" alias="college_id_2_yes" arcsize="9%" stroke="f" fillcolor="#f79520">
+                    <w:anchorlock/>
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_2_yes)=%%" alias="college_id_2_yes" style="width: 120px; white-space: nowrap; background-color: #f79520; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#ffffff; text-decoration: none; font-weight:normal; text-align: center;">Add&nbsp;to&nbsp;List</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                  &nbsp;
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_2_no)=%%" style="width: 75px; height: 30px; white-space: nowrap; background-color: #ffffff; font-weight: normal; v-text-anchor: middle;" alias="college_id_2_no" arcsize="9%" stroke="f" fillcolor="#ffffff">
+                    <w:anchorlock/>
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_2_no)=%%" alias="college_id_2_no" style="width: 75px; white-space: nowrap; background-color: #ffffff; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#00a9dc; text-decoration: underline; font-weight:normal; text-align: center;">Delete</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                </td>
+              </tr>
+            </table>
+%%[endif]%%%%[if not Empty(@college_id_3) then]%%            
+<!-- CID3 -->              
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td class="mobile-stack-l" width="10%" style="padding: 25px 10px 10px 0px; mso-line-height-rule: exactly; line-height: 100%; font-size: 10px; font-family: Arial, sans-serif; font-weight: normal;">
+                  <a href="%%=RedirectTo(@college_id_3_CPP)=%%" alias="college_id_3_logo" style="text-decoration: none; color: #6b6b6b;"><img alt="%%=v(@campaign_id_3_from_name)=%%" src="%%=v(@college_id_3_thumbnail_logo_url)=%%" style="width: 75px; background-color: #ffffff; text-align: left; display: block; border: 1px solid #dfdfdf;" width="75" /></a>
+                </td>
+                <td class="mobile-stack-r" width="65%" style="padding: 25px 0px 10px 0px; mso-line-height-rule: exactly; line-height: 20px; font-size: 16px; font-family: Arial, sans-serif; font-weight: normal; text-align: left;">
+                  <a href="%%=RedirectTo(@college_id_3_CPP)=%%" alias="college_id_3_name" style="text-decoration: none; color: #00a9dc;">%%=v(@campaign_id_3_from_name)=%%</a><br><span style="color: #6b6b6b; text-transform: uppercase; font-size: 10px;">%%=v(@college_id_3_city)=%%, %%=v(@college_id_3_state_abbr)=%%</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="padding: 10px 0px; color: #6b6b6b; mso-line-height-rule: exactly; line-height: 18px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">            
+                  <strong>Recruitment Message:</strong> %%=TreatAsContent(@campaign_id_3_truncated_message)=%%... <a href="%%=RedirectTo(@college_3_read_more)=%%" alias="college_id_3_rm" style="text-decoration: underline; color: #00a9dc;">Read More</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="border-bottom: 1px solid #e7e7e7; padding: 10px 0px 25px;  mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_3_yes)=%%" style="width: 120px; height: 30px; white-space: nowrap; background-color: #f79520; font-weight: normal; v-text-anchor: middle;" alias="college_id_3_yes" arcsize="9%" stroke="f" fillcolor="#f79520">
+                    <w:anchorlock/>
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_3_yes)=%%" alias="college_id_3_yes" style="width: 120px; white-space: nowrap; background-color: #f79520; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#ffffff; text-decoration: none; font-weight:normal; text-align: center;">Add&nbsp;to&nbsp;List</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                  &nbsp;
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_3_no)=%%" style="width: 75px; height: 30px; white-space: nowrap; background-color: #ffffff; font-weight: normal; v-text-anchor: middle;" alias="college_id_3_no" arcsize="9%" stroke="f" fillcolor="#ffffff">
+                    <w:anchorlock/>
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_3_no)=%%" alias="college_id_3_no" style="width: 75px; white-space: nowrap; background-color: #ffffff; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#00a9dc; text-decoration: underline; font-weight:normal; text-align: center;">Delete</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                </td>
+              </tr>
+            </table>
+%%[endif]%%%%[if not Empty(@college_id_4) then]%%             
+<!-- CID4 -->              
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td class="mobile-stack-l" width="10%" style="padding: 25px 10px 10px 0px; mso-line-height-rule: exactly; line-height: 100%; font-size: 10px; font-family: Arial, sans-serif; font-weight: normal;">
+                  <a href="%%=RedirectTo(@college_id_4_CPP)=%%" alias="college_id_4_logo" style="text-decoration: none; color: #6b6b6b;"><img alt="%%=v(@campaign_id_4_from_name)=%%" src="%%=v(@college_id_4_thumbnail_logo_url)=%%" style="width: 75px; background-color: #ffffff; text-align: left; display: block; border: 1px solid #dfdfdf;" width="75" /></a>
+                </td>
+                <td class="mobile-stack-r" width="65%" style="padding: 25px 0px 10px 0px; mso-line-height-rule: exactly; line-height: 20px; font-size: 16px; font-family: Arial, sans-serif; font-weight: normal; text-align: left;">
+                  <a href="%%=RedirectTo(@college_id_4_CPP)=%%" alias="college_id_4_name" style="text-decoration: none; color: #00a9dc;">%%=v(@campaign_id_4_from_name)=%%</a><br><span style="color: #6b6b6b; text-transform: uppercase; font-size: 10px;">%%=v(@college_id_4_city)=%%, %%=v(@college_id_4_state_abbr)=%%</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="padding: 10px 0px; color: #6b6b6b; mso-line-height-rule: exactly; line-height: 18px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">            
+                  <strong>Recruitment Message:</strong> %%=TreatAsContent(@campaign_id_4_truncated_message)=%%... <a href="%%=RedirectTo(@college_4_read_more)=%%" alias="college_id_4_rm" style="text-decoration: underline; color: #00a9dc;">Read More</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="border-bottom: 1px solid #e7e7e7; padding: 10px 0px 25px;  mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_4_yes)=%%" style="width: 120px; height: 30px; white-space: nowrap; background-color: #f79520; font-weight: normal; v-text-anchor: middle;" alias="college_id_4_yes" arcsize="9%" stroke="f" fillcolor="#f79520">
+                    <w:anchorlock/>
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_4_yes)=%%" alias="college_id_4_yes" style="width: 120px; white-space: nowrap; background-color: #f79520; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#ffffff; text-decoration: none; font-weight:normal; text-align: center;">Add&nbsp;to&nbsp;List</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                  &nbsp;
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_4_no)=%%" style="width: 75px; height: 30px; white-space: nowrap; background-color: #ffffff; font-weight: normal; v-text-anchor: middle;" alias="college_id_4_no" arcsize="9%" stroke="f" fillcolor="#ffffff">
+                    <w:anchorlock/>
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_4_no)=%%" alias="college_id_4_no" style="width: 75px; white-space: nowrap; background-color: #ffffff; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#00a9dc; text-decoration: underline; font-weight:normal; text-align: center;">Delete</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                </td>
+              </tr>
+            </table>
+%%[endif]%%%%[if not Empty(@college_id_5) then]%%             
+<!-- CID5 -->              
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                <td class="mobile-stack-l" width="10%" style="padding: 25px 10px 10px 0px; mso-line-height-rule: exactly; line-height: 100%; font-size: 10px; font-family: Arial, sans-serif; font-weight: normal;">
+                  <a href="%%=RedirectTo(@college_id_5_CPP)=%%" alias="college_id_5_logo" style="text-decoration: none; color: #6b6b6b;"><img alt="%%=v(@campaign_id_5_from_name)=%%" src="%%=v(@college_id_5_thumbnail_logo_url)=%%" style="width: 75px; background-color: #ffffff; text-align: left; display: block; border: 1px solid #dfdfdf;" width="75" /></a>
+                </td>
+                <td class="mobile-stack-r" width="65%" style="padding: 25px 0px 10px 0px; mso-line-height-rule: exactly; line-height: 20px; font-size: 16px; font-family: Arial, sans-serif; font-weight: normal; text-align: left;">
+                  <a href="%%=RedirectTo(@college_id_5_CPP)=%%" alias="college_id_5_name" style="text-decoration: none; color: #00a9dc;">%%=v(@campaign_id_5_from_name)=%%</a><br><span style="color: #6b6b6b; text-transform: uppercase; font-size: 10px;">%%=v(@college_id_5_city)=%%, %%=v(@college_id_5_state_abbr)=%%</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="padding: 10px 0px; color: #6b6b6b; mso-line-height-rule: exactly; line-height: 18px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">            
+                  <strong>Recruitment Message:</strong> %%=TreatAsContent(@campaign_id_5_truncated_message)=%%... <a href="%%=RedirectTo(@college_5_read_more)=%%" alias="college_id_5_rm" style="text-decoration: underline; color: #00a9dc;">Read More</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="container-padding" colspan="3" style="border-bottom: 1px solid #e7e7e7; padding: 10px 0px 25px;  mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; text-align: left;">
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_5_yes)=%%" style="width: 120px; height: 30px; white-space: nowrap; background-color: #f79520; font-weight: normal; v-text-anchor: middle;" alias="college_id_5_yes" arcsize="9%" stroke="f" fillcolor="#f79520">
+                    <w:anchorlock/>
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_5_yes)=%%" alias="college_id_5_yes" style="width: 120px; white-space: nowrap; background-color: #f79520; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#ffffff; text-decoration: none; font-weight:normal; text-align: center;">Add&nbsp;to&nbsp;List</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                  &nbsp;
+                  <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="%%=RedirectTo(@college_5_no)=%%" style="width: 75px; height: 30px; white-space: nowrap; background-color: #ffffff; font-weight: normal; v-text-anchor: middle;" alias="college_id_5_no" arcsize="9%" stroke="f" fillcolor="#ffffff">
+                    <w:anchorlock/>
+                      <center>
+                      <![endif]--><a class="button" href="%%=RedirectTo(@college_5_no)=%%" alias="college_id_5_no" style="width: 75px; white-space: nowrap; background-color: #ffffff; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 14px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#00a9dc; text-decoration: underline; font-weight:normal; text-align: center;">Delete</a> <!--[if mso]>
+                      </center>
+                    </v:roundrect>
+                  <![endif]-->
+                </td>
+              </tr>
+            </table>%%[endif]%%
+          </td>
+        </tr>
+<!-- P.Header-->
+        <tr>
+          <td class="container-padding" style="padding: 25px 25px 0px; mso-line-height-rule: exactly; line-height: 18px; font-size: 14px; font-family: Arial, sans-serif; color: #6b6b6b; font-weight: normal;">
+            Update your preferences, test scores and GPA on your <a href="%%=RedirectTo(@update_profile)=%%" alias="student_profile" style="text-decoration: underline; color: #00a9dc;">student profile</a> for more college matches.
+          </td>
+        </tr>
+<!-- Valediction -->
+        <tr>
+          <td bgcolor="#ffffff" class="container-padding" style="background-color: #ffffff; padding: 25px; font-size: 14px; font-family: Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 14px; font-family: Arial, sans-serif; font-weight: normal; color: #6b6b6b; text-align: left;">Regards,<br />
+                    <span style="font-size: 13.5px; font-family: 'Arvo', Arial, Helvetica, serif; color: #00a9dc; font-weight: bold;">YOUR CAPPEX TEAM</span><br />
+                    <a href="%%=RedirectTo(@cappex_home)=%%" alias="cappex_home" style="text-decoration: none; color: #00a9dc;">Cappex.com</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+<!-- Footer -->
+        <tr bgcolor="#555555">
+          <td style="font-family: Arial, Helvetica, sans-serif; background-color: #555555; text-align: center; color: #bfbfbf; font-size: 8pt; padding: 10px; mso-line-height-rule: exactly; line-height: 18px;"><a href="%%=RedirectTo(@manage_account)=%%" style="text-decoration: none; color: #00a9dc;" alias="manage_account">Update Email Settings</a> &nbsp;|&nbsp; <a href="%%unsub_center_url%%" alias="unsubscribe" style="text-decoration: none; color: #00a9dc;">Unsubscribe</a><br />
+          This email was sent by <a href="%%=RedirectTo(@cappex_home)=%%" alias="cappex_home" style="text-decoration: none; color: #00a9dc;">Cappex.com</a> LLC, &copy; %%=Format(Now(),"yyyy")=%%<br />
+          311 S. Wacker Drive #5900, Chicago, IL 60606</td>
+        </tr>
+      </table>
+      <!--/600px container -->
+    </td>
+  </tr>
+</table>
+<!--/100% wrapper-->
+<br>
+<br>
+<div style="display:none;"><table cellpadding="2" cellspacing="0" width="600" ID="Table5" Border=0 style="display:none;"><tr><td><font face="verdana" size="1" color="#ffffff">This email was sent by: <b>%%Member_Busname%%</b><br>%%Member_Addr%% %%Member_City%%, %%Member_State%%, %%Member_PostalCode%%, %%Member_Country%%<br><a href="%%profile_center_url%%" style="color: #ffffff;" alias="update_profile">Update Profile</a> <a href="%%subscription_center_url%%" style="color: #ffffff;" alias="manage_subscriptions">Manage Subscriptions</a> <a href="%%unsub_center_url%%" style="color: #ffffff;" alias="Unsubscribe">Unsubscribe</a></font></td></tr></table></div>
+<custom name="opencounter" type="tracking">
+</body>
+</html>

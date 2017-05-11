@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><!-- So that mobile webkit will display zoomed in --><meta name="format-detection" content="telephone=no"><!-- disable auto telephone linking in iOS -->
+	<title>College Greenlight</title>
+	<style type="text/css">@import url(http://fonts.googleapis.com/css?family=Arvo);
+  /* Resets: see reset.css for details */
+  .ReadMsgBody { width: 100%; background-color: #ffffff;}
+  .ExternalClass {width: 100%; background-color: #ffffff;}
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+  body {-webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
+  body {margin: 0; padding: 0;}
+  table {border-spacing: 0;}
+  table td {border-collapse: collapse;}
+  .yshortcuts a {border-bottom: none !important;}
+
+  /* Constrain email width for small screens */
+  @media screen and (max-width: 480px) {
+    table[class="container"] {width: 95% !important;}
+    td[class="container-padding"] {
+    	width: 90%  !important; /*recent edit*/
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+    }
+    table[class="mobile-stacked1"]{
+      float: none !important;
+      width: 100% !important;
+    }
+    table[class="mobile-stacked2"]{
+      float: none !important;
+      width: 100% !important;
+      margin-top: 25px !important;
+    }
+    table[class="mobile-stacked"]{
+      float: none !important;
+      width: 100% !important;
+      margin-top: 1px !important;
+    }
+    table[class=detail], table[class=interested] {
+      float: none !important;
+      width: 100% !important;
+      padding-top: 10px;
+    }
+    img[class=primaryLogo]{width:100% !important;}
+    img[class="HeroImage"]{
+        height:auto !important;
+        max-width:480px !important;
+        width:100% !important;
+        margin:auto;
+        vertical-align: bottom;
+        background-color:#ffffff;
+    }
+    td[class="bodycontent"]{
+    	width: 100%  !important; /*recent edit*/
+        font-size:18px !important;
+		line-height: 24px !important;
+    }
+  }
+	</style>
+</head>
+<body bgcolor="#ffffff" leftmargin="0" marginheight="0" marginwidth="0" style="margin: 0; padding: 5px 0; background-color: #ffffff;" topmargin="0">
+<div style="display:none;">
+%%[Var @account_id, @first_name, @auto_login_key, @identifier, @login_url, @cgl_home, @update_profile, @manage_account, @colleges_tab, @AppMan
+
+Set @account_id = account_id
+Set @first_name = first_name
+Set @auto_login_key = auto_login_key
+Set @identifier = identifier
+  if Empty(@auto_login_key) OR Empty(@identifier) then
+  Set @login_url = "https://collegegreenlight.com/page/account/login.jsp?"
+  else
+  Set @login_url = Concat("https://collegegreenlight.com/page/account/login.jsp?key=",@auto_login_key,"&identifier=",@identifier,"&submitButton=Submit")
+  endif
+Set @cgl_home = Concat(@login_url,"&redirect=https://www.collegegreenlight.com")
+Set @update_profile = Concat(@login_url,"&redirect=https://www.collegegreenlight.com/page/student/profileSummary.jsp")
+set @manage_account = Concat(@login_url,"&redirect=https://www.collegegreenlight.com/hq/account/manage")
+Set @colleges_tab = Concat(@login_url,"&redirect=https://www.collegegreenlight.com/page/collegeCenter/myCollegesTab.jsp")
+Set @AppMan = Concat(@login_url,"&redirect=https://www.collegegreenlight.com/hq/application-list")
+]%%
+</div>
+<!-- 100% wrapper (grey background) -->
+<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" height="100%" style="background-color: #ffffff;" width="99%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#ffffff" valign="top">
+<!-- 600px container (white background) -->
+				<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="container" width="600" style="border: 1px solid #e7e7e7;">
+					<tbody>
+<!--Logo container-->
+						<tr bgcolor="#ffffff">
+							<td align="center" class="headercell" style="border-bottom: 1px solid #e7e7e7;"><!--Logo container--><a href="%%=RedirectTo(@cgl_home)=%%" alias="cgl_logo_home"><img alt="College Greenlight" border="0" src="https://email-assets.cappex.com/cgl-header.png" /></a></td>
+						</tr>				
+<!--Body Container 1 -->
+						<tr>
+							<td class="container-padding" style="padding: 25px; background-color: #1dae4b; line-height: 22px; font-size: 15px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; text-align: center;">
+								<table class="mobile-stacked1" border="0" cellpadding="0" cellspacing="0" width="60%" align="left">
+									<tr>
+										<td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 24px; font-size: 20px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; text-align: left;">
+											Webinar: Everything Counselors Need to Know About Fly-in Programs<br><br>
+											<table class="mobile-stacked1" border="0" cellpadding="0" cellspacing="0" width="80%">
+												<tr>
+													<td style="font-size: 16px; font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: center;">
+														<!--[if mso]>
+							                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://attendee.gotowebinar.com/register/5771798711547953410" style="width: 180px; height: 36px; white-space: nowrap; background-color: #ffffff; font-weight: normal; v-text-anchor: middle;" alias="register_cta" arcsize="9%" stroke="f" fillcolor="#ffffff">
+							                            <w:anchorlock/>
+							                              <center>
+							                              <![endif]--><a class="button" href="https://attendee.gotowebinar.com/register/5771798711547953410" alias="register_cta" style="width: 180px; white-space: nowrap; background-color: #ffffff; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 16px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#1dae4b; text-decoration: none; font-weight:normal; text-align: center;">Register Now</a> <!--[if mso]>
+							                              </center>
+							                            </v:roundrect>
+							                          	<![endif]-->
+													</td> 
+												</tr>
+											</table>
+										</td> 
+									</tr>
+								</table>
+								<table class="mobile-stacked2" border="0" cellpadding="0" cellspacing="0" width="35%" align="right">
+									<tr>
+										<td class="bodycontent" style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #1dae4b; text-align: left;">
+											<table cellpadding="0" cellspacing="0" width="90%" align="center" style="font-family: Arial, Helvetica, sans-serif; text-align:center; border-collapse: collapse; border: 1px solid #ffffff;">
+												<tr>
+													<td valign"middle" style="padding: 5px; mso-line-height-rule: exactly; line-height: 22px; font-size: 18px; font-family: Arial, Helvetica, sans-serif; background-color: #ffffff; color:#1dae4b;">MAY</td>
+												</tr>
+												<tr>
+													<td>
+														<table class="mobile-stacked" border="0" cellpadding="0" cellspacing="0" style="font-family: Helvetica, sans-serif; text-align: center;" width="100%">
+															<tr>
+																<td style="padding: 15px 0px 5px; color: #ffffff; mso-line-height-rule: exactly; line-height: 44px; font-size: 40px;">18</td>
+															</tr>
+															<tr>
+																<td style="padding: 10px 0px; color: #ffffff; mso-line-height-rule: exactly; line-height: 22px; font-size: 18px;">2:00 pm Central</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td> 
+									</tr>
+								</table>
+							</td>
+						</tr>						
+<!--Body Container 1 -->
+						<tr>
+							<td class="container-padding" style="padding: 25px 25px 15px; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 22px; font-size: 15px;font-family: Arial, Helvetica, sans-serif; color: #ffffff; text-align: center;">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+												Fly-in programs are amazing opportunities for students from low-income and underrepresented backgrounds to visit and explore college campuses for FREE! More than 70 colleges, including many of the nation's top schools, offer these incredible programs.<br><br>
+												During this webinar, you will learn everything counselors and your students need to know about fly-in programs from admissions officers at Williams College, Bowdoin College, and Swarthmore College.
+											</td> 
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+<!--Green CTA Button -->
+						<tr>
+							<td class="container-padding" style="padding: 15px 25px; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 36px; font-size: 16px;font-family: Arial, Helvetica, sans-serif; color: #ffffff; text-align: center;">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td style="font-size: 16px; font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: center;">
+												<!--[if mso]>
+					                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://attendee.gotowebinar.com/register/5771798711547953410" style="width: 255px; height: 36px; white-space: nowrap; background-color: #1dae4b; font-weight: normal; v-text-anchor: middle;" alias="register_cta" arcsize="9%" stroke="f" fillcolor="#1dae4b">
+					                            <w:anchorlock/>
+					                              <center>
+					                              <![endif]--><a class="button" href="https://attendee.gotowebinar.com/register/5771798711547953410" alias="register_cta" style="width: 255px; white-space: nowrap; background-color: #1dae4b; border-radius: 3px; display: inline-block; mso-line-height-rule: exactly; line-height: 36px; font-size: 16px; -webkit-text-size-adjust: none; font-family: sans-serif; color:#ffffff; text-decoration: none; font-weight:normal; text-align: center;">Register Now</a> <!--[if mso]>
+					                              </center>
+					                            </v:roundrect>
+					                          	<![endif]-->
+											</td> 
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+<!--Body Container 2 -->
+						<tr>
+							<td class="container-padding" style="padding: 15px 25px 0px; background-color: #ffffff; mso-line-height-rule: exactly; line-height: 22px; font-size: 15px;font-family: Arial, Helvetica, sans-serif; color: #ffffff; text-align: center;">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 15px; font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+												Busy during this time? <a href="https://attendee.gotowebinar.com/register/5771798711547953410" style="color: #1dae4b;" alias="register_link">Register</a> anyway and we will send you the recording.
+											</td> 
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+<!-- Valediction -->
+						<tr>
+						  <td bgcolor="#ffffff" class="container-padding" style="background-color: #ffffff; padding: 25px; font-size: 14px;font-family: Arial, Helvetica, sans-serif; color: #6b6b6b; text-align: left;">
+						    <table border="0" cellpadding="0" cellspacing="0">
+						      <tbody>
+						        <tr>
+						          <td class="bodycontent" style="mso-line-height-rule: exactly; line-height: 22px; font-size: 14px; font-family: Arial, sans-serif; font-weight: normal; color: #6b6b6b; text-align: left;">
+						            Regards,<br />
+						            <b>Your College Greenlight Team</b><br>
+						            <a href="%%=RedirectTo(@cgl_home)=%%" alias="cgl_home" style="text-decoration: none; color: #1dae4b;">CollegeGreenlight.com</a>
+						          </td>
+						        </tr>
+						      </tbody>
+						    </table>
+						  </td>
+						</tr>
+<!-- Footer -->
+						<tr bgcolor="#555555">
+						  <td style="font-family: Arial, Helvetica, sans-serif; background-color: #555555; text-align: center; color: #bfbfbf; font-size: 11px; padding: 10px; mso-line-height-rule: exactly; line-height: 18px;"><a href="%%=RedirectTo(@manage_account)=%%" alias="cgl_manage_account" style="text-decoration: none; color: #1dae4b;">Update Email Settings</a> &nbsp;|&nbsp; <a href="%%unsub_center_url%%" alias="unsubscribe" style="text-decoration: none; color: #1dae4b;">Unsubscribe</a><br />
+						  This email was sent by <a href="%%=RedirectTo(@cgl_home)=%%" alias="cgl_home" style="text-decoration: none; color: #1dae4b;">CollegeGreenlight.com</a> LLC, &copy; %%=Format(Now(),"yyyy")=%%<br />
+						  311 S. Wacker Drive #5900, Chicago, IL 60606</td>
+						</tr>
+					</tbody>
+				</table>
+<!--/600px container -->
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!--/100% wrapper-->
+<br>
+<div style="display:none;"><table cellpadding="2" cellspacing="0" width="600" ID="Table5" Border=0 style="display:none;"><tr><td><font face="verdana" size="1" color="#ffffff">This email was sent by: <b>%%Member_Busname%%</b><br>%%Member_Addr%% %%Member_City%%, %%Member_State%%, %%Member_PostalCode%%, %%Member_Country%%<br><a href="%%profile_center_url%%" style="color: #ffffff;" alias="update_profile">Update Profile</a> <a href="%%subscription_center_url%%" style="color: #ffffff;" alias="manage_subscriptions">Manage Subscriptions</a> <a href="%%unsub_center_url%%" style="color: #ffffff;" alias="Unsubscribe">Unsubscribe</a></font></td></tr></table></div>
+<custom name="opencounter" type="tracking">
+</body>
+</html>
